@@ -118,7 +118,7 @@ public class SeleccionarEquipo extends JDialog {
 	public PEquipo obtenerEquipoDesplegable()
 	{
 		PEquipo eq= new PEquipo();
-		eq= (PEquipo) comboBoxSelectEquipo.getSelectedItem();
+		eq=(PEquipo) comboBoxSelectEquipo.getSelectedItem();
 		
 		return eq;
 	}//obtenerEquipoDesplegable()
