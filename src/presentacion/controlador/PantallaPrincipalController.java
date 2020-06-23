@@ -7,6 +7,7 @@ import javax.swing.JOptionPane;
 
 import presentacion.vista.NuevoEquipo;
 import presentacion.vista.PantallaPrincipal;
+import presentacion.vista.SeleccionarEquipo;
 
 public class PantallaPrincipalController
 {
@@ -34,6 +35,17 @@ public class PantallaPrincipalController
 				}
 		
 			});
+		
+		vista.addmntmBuscarEquipoActionListener(new ActionListener()
+		{
+			@Override
+			public void actionPerformed(ActionEvent e)
+			{
+				SeleccionarEquipo dialogo= new SeleccionarEquipo();
+				new SeleccionarEquipoController(dialogo);
+			}
+	
+		});
 	}//anhadirListeners()
 	
 	

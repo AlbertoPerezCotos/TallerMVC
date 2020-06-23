@@ -36,6 +36,7 @@ public class PantallaPrincipal {
 	private JTextField txtFInicioEntrenam;
 	private JTable table;
 	private JMenuItem mntmNuevoEquipo; //creado desde el builder, convirtiendo el boton en variable local
+	private JMenuItem mntmBuscarEquipo;
 
 	//Ponemos todo esto como comentario para que sólo haya un único punto de entrada: el main de Programa
 	/**
@@ -84,8 +85,8 @@ public class PantallaPrincipal {
 		});*/
 		mnMenuEquipo.add(mntmNuevoEquipo);
 		
-		JMenuItem mntmBuscar = new JMenuItem("Buscar");
-		mnMenuEquipo.add(mntmBuscar);
+		mntmBuscarEquipo = new JMenuItem("Buscar");
+		mnMenuEquipo.add(mntmBuscarEquipo);
 		
 		JMenu mnEntrenador = new JMenu("Entrenador");
 		menuBar.add(mnEntrenador);
@@ -201,6 +202,10 @@ public class PantallaPrincipal {
 		mntmNuevoEquipo.addActionListener(listener);
 	}
 	
+	public void addmntmBuscarEquipoActionListener(ActionListener listener) //addmntm - add menu item
+	{
+		mntmBuscarEquipo.addActionListener(listener);
+	}
 	
 	
 }//class PantallaPrincipal
