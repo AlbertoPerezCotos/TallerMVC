@@ -12,6 +12,7 @@ import presentacion.entidades.PEquipo;
 
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import java.awt.Font;
 import java.awt.event.ActionListener;
@@ -118,5 +119,27 @@ public class NuevoEquipo extends JDialog {
 		eq.anhoFundacion= Integer.valueOf(txtAnhoFundac.getText());
 		return eq;
 	}//obtenerDatosEquipo()
+	
+	public boolean validarFormulario()
+	{
+		boolean resultado= true;
+		
+		if(txtNombreEquipo.getText().isEmpty())
+		{
+			JOptionPane.showMessageDialog(null, "El campo Nombre es obligatorio");
+			resultado= false;
+		}
+		else
+			try
+			{
+				Integer.valueOf(txtAnhoFundac.getText());
+			}
+			catch(NumberFormatException ex)
+			{
+				JOptionPane.showMessageDialog(null, "El campo Año de Fundacion es obligatorio");
+				resultado= false;
+			}
+		return resultado;
+	}//validarFormulario()
 
 }//class NuevoEquipo
