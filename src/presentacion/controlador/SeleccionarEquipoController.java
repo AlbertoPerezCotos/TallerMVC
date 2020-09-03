@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import java.io.ObjectStreamException;
 import java.util.ArrayList;
 
 import crosscutting.excepciones.ConexionBBDDException;
@@ -23,36 +24,38 @@ public class SeleccionarEquipoController
 	{
 		this.vista= vista;
 		anhadirListeners(); //mejor lanzarlo aki para que las ventanas desactivadas se carguen bien
-		
+		mostrarEquiposDesplegable();
 		this.vista.setVisible(true);
 		this.vista.setLocationRelativeTo(null);
 		
-		mostrarEquiposDesplegable();
+		
 		
 	}
 	
 	private void anhadirListeners()
 	{
 		vista.addbtnSeleccionarAddActionPerformedEvent(new ActionListener()
-				{
+			{
 
-					@Override
-					public void actionPerformed(ActionEvent e) {
-
-					}
-		
-				});
-		
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					vista.dispose();
+				}
+	
+			});
+	
 		
 		vista.addbtnCerrarAddActionPerformedEvent(new ActionListener()
-				{
+			{
 
-					@Override
-					public void actionPerformed(ActionEvent e) {
-						vista.dispose();
-					}
-			
-				});
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					
+					vista.comboBoxSelectEquipo.setSelectedItem(null);
+					vista.dispose();
+				}
+		
+			});
 		
 		vista.addbtncbSelectEquipoItemListener(new ItemListener() {
 			
@@ -78,5 +81,16 @@ public class SeleccionarEquipoController
 		} catch (ConexionBBDDException e) {
 			e.printStackTrace();
 		}
-	}
+	}//mostrarEquiposDesplegable()
+	
+	
+	public PEquipo enviarEquipoSeleccionado()
+	{
+		PEquipo equipoSeleccionado= vista.obtenerEquipoDesplegable();
+		return equipoSeleccionado;
+	}//enviarEquipoSeleccionado()
+	
+	
+	
+	
 }//class SeleccionarEquipoController

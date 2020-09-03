@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JOptionPane;
 
+import presentacion.entidades.PEquipo;
 import presentacion.vista.NuevoEquipo;
 import presentacion.vista.PantallaPrincipal;
 import presentacion.vista.SeleccionarEquipo;
@@ -42,11 +43,19 @@ public class PantallaPrincipalController
 			public void actionPerformed(ActionEvent e)
 			{
 				SeleccionarEquipo dialogo= new SeleccionarEquipo();
-				new SeleccionarEquipoController(dialogo);
+				SeleccionarEquipoController cont= new SeleccionarEquipoController(dialogo);
+				
+				PEquipo equipoSeleccionado= cont.enviarEquipoSeleccionado();
+				
+				if(equipoSeleccionado!=null)
+					vista.mostrarDatosEquipoSeleccionado(equipoSeleccionado);
 			}
 	
 		});
 	}//anhadirListeners()
+	
+	
+	
 	
 	
 }//class PantallaPrincipalController

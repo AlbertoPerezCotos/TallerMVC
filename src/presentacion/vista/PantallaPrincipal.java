@@ -10,6 +10,9 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import java.awt.BorderLayout;
 import javax.swing.border.TitledBorder;
+
+import presentacion.entidades.PEquipo;
+
 import javax.swing.UIManager;
 import java.awt.Color;
 import java.awt.Font;
@@ -206,6 +209,14 @@ public class PantallaPrincipal {
 	{
 		mntmBuscarEquipo.addActionListener(listener);
 	}
+	
+	
+	//mostrar los datos del equipo seleccionado desde el menu buscar y seleccionar equipo
+	public void mostrarDatosEquipoSeleccionado(PEquipo equipoSeleccionado)
+	{
+		txtIdEquipo.setText(String.valueOf(equipoSeleccionado.id));
+		
+	}//mostrarDatosEquipoSeleccionado
 	
 	
 }//class PantallaPrincipal

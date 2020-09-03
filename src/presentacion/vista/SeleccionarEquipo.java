@@ -28,7 +28,7 @@ public class SeleccionarEquipo extends JDialog {
 	private JTextField txtIdEquipo;
 	private JButton btnSeleccionar;
 	private JButton btnCerrar;
-	private JComboBox comboBoxSelectEquipo;
+	public JComboBox comboBoxSelectEquipo;
 
 	/**
 	 * Launch the application.
@@ -47,6 +47,7 @@ public class SeleccionarEquipo extends JDialog {
 	 * Create the dialog.
 	 */
 	public SeleccionarEquipo() {
+		setModal(true);
 		setBounds(100, 100, 450, 300);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -108,7 +109,7 @@ public class SeleccionarEquipo extends JDialog {
 				getRootPane().setDefaultButton(btnSeleccionar);
 			}
 			{
-				btnCerrar = new JButton("Cerrar");
+				btnCerrar = new JButton("Cancelar");
 				btnCerrar.setActionCommand("Cancel");
 				buttonPane.add(btnCerrar);
 			}
